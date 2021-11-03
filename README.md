@@ -1,5 +1,7 @@
 # UWr-Projekt-aplikacji-mobilnej-2
 
+App name: CountDown
+
 ## Descrioption
 
 The application will have the task of calculating the number of remaining days to the
