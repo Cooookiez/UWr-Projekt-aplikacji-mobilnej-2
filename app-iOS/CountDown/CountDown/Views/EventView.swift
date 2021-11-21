@@ -30,8 +30,8 @@ struct EventView: View {
 extension EventView {
     func updateEvent() {
         let event = EventsModel(
-            name: eventViewModel.eventItem.name,
             id: eventViewModel.eventItem.id,
+            name: eventViewModel.eventItem.name,
             date: eventViewModel.eventItem.date
         )
         eventsViewModel.updateEventItem(event)
@@ -39,7 +39,10 @@ extension EventView {
     }
     
     func addEvent() {
-        let event = EventsModel(name: eventViewModel.eventItem.name)
+        let event = EventsModel(
+            name: eventViewModel.eventItem.name,
+            date: eventViewModel.eventItem.date
+        )
         eventsViewModel.addEventItem(event)
         presenationMode.wrappedValue.dismiss()
     }

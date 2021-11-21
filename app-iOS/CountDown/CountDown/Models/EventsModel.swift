@@ -9,8 +9,32 @@ import Foundation
 
 struct EventsModel: Identifiable, Codable {
     var name: String
-    var id: String = UUID().uuidString
-    var date: Date = Date()
+    var date: Date
+    var id: String
+    
+    init (name: String) {
+        self.id = UUID().uuidString
+        self.name = name
+        self.date = Date()
+    }
+    
+    init (name: String, date: Date) {
+        self.id = UUID().uuidString
+        self.name = name
+        self.date = date
+    }
+    
+    init (id: String, name: String) {
+        self.id = id
+        self.name = name
+        self.date = Date()
+    }
+    
+    init (id: String, name: String, date: Date) {
+        self.id = id
+        self.name = name
+        self.date = date
+    }
     
     static var sampleData: [EventsModel] {
         [
