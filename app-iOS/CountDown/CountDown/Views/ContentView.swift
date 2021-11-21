@@ -38,7 +38,7 @@ struct ContentView: View {
                             VStack {
                                 Text(eventItems.name)
                                     .font(.title2)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color(UIColor.label))
                                     .lineLimit(1)
                                     .frame(
                                         minWidth: 0,
@@ -46,10 +46,9 @@ struct ContentView: View {
                                         alignment: .leading
                                     )
                                 Text("\(targetDay) / \(targetMonth) / \(String(targetYear))")
-//                                Text("\(leftDate)")
                                     .font(.subheadline)
                                     .lineLimit(1)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(Color(UIColor.secondaryLabel))
                                     .frame(
                                         minWidth: 0,
                                         maxWidth: .infinity,
@@ -59,7 +58,7 @@ struct ContentView: View {
                             Text("\(dayLeft) days")
                                 .font(.title)
                                 .fontWeight(.medium)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color(UIColor.label))
                                 .lineLimit(1)
                         }
                     }
@@ -71,6 +70,7 @@ struct ContentView: View {
                 ToolbarItem(placement: .principal){
                     Text("My Events")
                         .font(.title2)
+                        .foregroundColor(Color("Text"))
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button {
