@@ -18,26 +18,26 @@ App for IOS systems
 | ⏲ | Etap   | DeadLine |
 | -- | :----- | -: |
 | ✅ | Etap 0 | 18 / 10 / 2021 |
-| 🕦 | Etap 1 | 15 / 11 / 2021 |
-| 🕥 | Etap 2 | 13 / 12 / 2021 |
-| 🕤 | Etap 3 | 10 / 01 / 2022 |
+| ✅ | Etap 1 | 22 / 11 / 2021 |
+| 🕦 | Etap 2 | 13 / 12 / 2021 |
+| 🕥 | Etap 3 | 10 / 01 / 2022 |
 
 ## Etaps
 
 ### 🕦 Etap 1
 
-- [ ] Event list
-  - [ ] Event list view with items (ritle, days to the end, etc.)
-  - [ ] Adding events
-- [ ] Edit event view
-- [ ] Saving events data
+- [x] Event list
+  - [x] Event list view with items (title, days to the end, etc.)
+  - [x] Adding events
+- [x] Edit event view
+- [x] Saving events data
 
 ### 🕥 Etap 2
 
-- [ ] Deleting events from the list
+- [x] Deleting events from the list
 - [ ] Prototype widget (showing the first few events with the number of days remaining)
 
 ### 🕤 Etap 3
 
-- [ ] Refined widget (as visually pleasing as possible)
+- [ ] Widget (as visually pleasing as possible)
 - [ ] Application icon
