@@ -6,83 +6,85 @@
 //
 
 import SwiftUI
-import CoreData
+
+let dateFormatter = DateFormatter()
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    @EnvironmentObject var eventsViewModel: EventsViewModel
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+            List() {
+                let calendar = Calendar.current
+                let currentDate = Date()
+                
+                ForEach(eventsViewModel.eventItems) { eventItems in
+                    
+                    let targetComponents = calendar.dateComponents([.day, .month, .year], from: eventItems.date)
+                    let targetDay: Int = targetComponents.day ?? 0
+                    let targetMonth: Int = targetComponents.month ?? 0
+                    let targetYear: Int = targetComponents.year ?? 0
+                    
+                    let date1 = calendar.startOfDay(for: currentDate)
+                    let date2 = calendar.startOfDay(for: eventItems.date)
+                    let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
+                    
+                    let dayLeft = leftComponents.day ?? -1
+                    
+                    Button {
+                        
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        HStack {
+                            VStack {
+                                Text(eventItems.name)
+                                    .font(.title2)
+                                    .foregroundColor(.black)
+                                    .lineLimit(1)
+                                    .frame(
+                                        minWidth: 0,
+                                        maxWidth: .infinity,
+                                        alignment: .leading
+                                    )
+                                Text("\(targetDay) / \(targetMonth) / \(String(targetYear))")
+//                                Text("\(leftDate)")
+                                    .font(.subheadline)
+                                    .lineLimit(1)
+                                    .foregroundColor(.gray)
+                                    .frame(
+                                        minWidth: 0,
+                                        maxWidth: .infinity,
+                                        alignment: .leading
+                                    )
+                            }
+                            Text("\(dayLeft) days")
+                                .font(.title)
+                                .fontWeight(.medium)
+                                .foregroundColor(.black)
+                                .lineLimit(1)
+                        }
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
+            .listStyle(InsetGroupedListStyle())
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                ToolbarItem(placement: .principal){
+                    Text("My Events")
+                        .font(.title2)
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "plus")
                     }
                 }
-            }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+            .environmentObject(EventsViewModel())
     }
 }
