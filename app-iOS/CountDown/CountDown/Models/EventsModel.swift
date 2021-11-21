@@ -8,8 +8,8 @@
 import Foundation
 
 struct EventsModel: Identifiable, Codable {
-    var id: String = UUID().uuidString
     var name: String
+    var id: String = UUID().uuidString
     var date: Date = Date()
     
     static var sampleData: [EventsModel] {

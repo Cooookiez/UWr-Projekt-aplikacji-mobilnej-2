@@ -11,6 +11,7 @@ let dateFormatter = DateFormatter()
 
 struct ContentView: View {
     @EnvironmentObject var eventsViewModel: EventsViewModel
+    @State private var modalType: ModalType? = nil
     var body: some View {
         NavigationView {
             List() {
@@ -31,7 +32,7 @@ struct ContentView: View {
                     let dayLeft = leftComponents.day ?? -1
                     
                     Button {
-                        
+                        modalType = .update(eventItems)
                     } label: {
                         HStack {
                             VStack {
@@ -72,13 +73,17 @@ struct ContentView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button {
-                        
+                        modalType = .add
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
             }
         }
+//        .sheet(item: $modalType) { modalType in
+//            modalType
+//        }
+        .sheet(item: $modalType) { $0 }
     }
 }
 

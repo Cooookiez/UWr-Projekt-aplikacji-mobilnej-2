@@ -15,11 +15,12 @@ class EventsViewModel: ObservableObject {
     }
     
     func addEventItem(_ eventItemModel: EventsModel) {
-        
+        eventItems.append(eventItemModel)
     }
     
-    func updateEventItem(_ eventItemModel: EventsModel) {
-        
+    func updateEventItem(_ event: EventsModel) {
+        guard let index = eventItems.firstIndex(where: { $0.id == event.id }) else { return }
+        eventItems[index] = event
     }
     
     func deleteEventItem(at indexSet: IndexSet) {
