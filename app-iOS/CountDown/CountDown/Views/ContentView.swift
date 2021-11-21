@@ -25,6 +25,10 @@ struct ContentView: View {
                     let targetMonth: Int = targetComponents.month ?? 0
                     let targetYear: Int = targetComponents.year ?? 0
                     
+                    let sTargetDay: String = targetDay > 9 ? String(targetDay) : "0" + String(targetDay)
+                    let sTargetMonth: String = targetMonth > 9 ? String(targetMonth) : "0" + String(targetMonth)
+                    let sTargetYear: String = String(targetYear).leftPadding(toLength: 4, withPad: "0")
+                    
                     let date1 = calendar.startOfDay(for: currentDate)
                     let date2 = calendar.startOfDay(for: eventItems.date)
                     let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
@@ -45,7 +49,7 @@ struct ContentView: View {
                                         maxWidth: .infinity,
                                         alignment: .leading
                                     )
-                                Text("\(targetDay) / \(targetMonth) / \(String(targetYear))")
+                                Text("\(sTargetDay) / \(sTargetMonth) / \(String(sTargetYear))")
                                     .font(.subheadline)
                                     .lineLimit(1)
                                     .foregroundColor(Color(UIColor.secondaryLabel))
@@ -56,7 +60,7 @@ struct ContentView: View {
                                     )
                             }
                             Text("\(dayLeft) days")
-                                .font(.title)
+                                .font(.title2)
                                 .fontWeight(.medium)
                                 .foregroundColor(dayLeft >= 0 ? Color(UIColor.label) : .red)
                                 .lineLimit(1)
@@ -82,6 +86,17 @@ struct ContentView: View {
             }
         }
         .sheet(item: $modalType) { $0 }
+    }
+}
+
+extension String {
+    func leftPadding(toLength: Int, withPad character: Character) -> String {
+        let stringLength = self.count
+        if stringLength < toLength {
+            return String(repeatElement(character, count: toLength - stringLength)) + self
+        } else {
+            return String(self.suffix(toLength))
+        }
     }
 }
 
