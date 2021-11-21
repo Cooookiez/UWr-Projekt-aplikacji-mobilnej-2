@@ -58,7 +58,7 @@ struct ContentView: View {
                             Text("\(dayLeft) days")
                                 .font(.title)
                                 .fontWeight(.medium)
-                                .foregroundColor(Color(UIColor.label))
+                                .foregroundColor(dayLeft >= 0 ? Color(UIColor.label) : .red)
                                 .lineLimit(1)
                         }
                     }

@@ -36,6 +36,10 @@ struct EventsModel: Identifiable, Codable {
         self.date = date
     }
     
+    func sorterForFileIDASC(this: EventsModel, that: EventsModel) -> Bool {
+        return this.date < that.date
+    }
+    
     static var sampleData: [EventsModel] {
         [
             EventsModel(name: "Etap 0"),
@@ -44,4 +48,5 @@ struct EventsModel: Identifiable, Codable {
             EventsModel(name: "Etap 3"),
         ]
     }
+    
 }

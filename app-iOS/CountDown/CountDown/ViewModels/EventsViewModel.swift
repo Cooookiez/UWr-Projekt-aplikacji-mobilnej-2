@@ -19,17 +19,20 @@ class EventsViewModel: ObservableObject {
     
     func addEventItem(_ eventItemModel: EventsModel) {
         eventItems.append(eventItemModel)
+        sortList()
         saveEventItems()
     }
     
     func updateEventItem(_ event: EventsModel) {
         guard let index = eventItems.firstIndex(where: { $0.id == event.id }) else { return }
         eventItems[index] = event
+        sortList()
         saveEventItems()
     }
     
     func deleteEventItem(at indexSet: IndexSet) {
         eventItems.remove(atOffsets: indexSet)
+        sortList()
         saveEventItems()
     }
     
@@ -48,6 +51,7 @@ class EventsViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+        sortList()
     }
     
     func saveEventItems() {
@@ -64,5 +68,10 @@ class EventsViewModel: ObservableObject {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func sortList() {
+        // images.sorted(by: { $0.fileID > $1.fileID })
+        self.eventItems =  self.eventItems.sorted(by: { $0.date < $1.date })
     }
 }
