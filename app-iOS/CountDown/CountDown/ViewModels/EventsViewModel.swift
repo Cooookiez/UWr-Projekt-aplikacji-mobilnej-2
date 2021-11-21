@@ -29,6 +29,7 @@ class EventsViewModel: ObservableObject {
     }
     
     func deleteEventItem(at indexSet: IndexSet) {
+        eventItems.remove(atOffsets: indexSet)
         saveEventItems()
     }
     

@@ -64,6 +64,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: eventsViewModel.deleteEventItem)
             }
             .listStyle(InsetGroupedListStyle())
             .toolbar {
@@ -80,9 +81,6 @@ struct ContentView: View {
                 }
             }
         }
-//        .sheet(item: $modalType) { modalType in
-//            modalType
-//        }
         .sheet(item: $modalType) { $0 }
     }
 }
