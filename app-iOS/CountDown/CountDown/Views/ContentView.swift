@@ -49,7 +49,7 @@ struct ContentView: View {
                                         maxWidth: .infinity,
                                         alignment: .leading
                                     )
-                                Text("\(sTargetDay) / \(sTargetMonth) / \(String(sTargetYear))")
+                                Text("\(sTargetDay).\(sTargetMonth).\(String(sTargetYear))")
                                     .font(.subheadline)
                                     .lineLimit(1)
                                     .foregroundColor(Color(UIColor.secondaryLabel))
@@ -59,13 +59,37 @@ struct ContentView: View {
                                         alignment: .leading
                                     )
                             }
-                            Text("\(dayLeft) days")
-                                .font(.title2)
-                                .fontWeight(.medium)
-                                .foregroundColor(dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel))
-                                .lineLimit(1)
+                            VStack {
+                                Text("\(dayLeft)")
+                                    .font(.largeTitle)
+                                    .fontWeight(.medium)
+                                    .foregroundColor(
+                                        dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                                    )
+                                    .multilineTextAlignment(.trailing)
+                                    .lineLimit(1)
+                                    .frame(
+                                        minWidth: 0,
+                                        maxWidth: .infinity,
+                                        alignment: .trailing
+                                    )
+                                Text("Days")
+                                    .font(.system(size: 12))
+                                    .fontWeight(.medium)
+                                    .multilineTextAlignment(.trailing)
+                                    .lineLimit(1)
+                                    .foregroundColor(
+                                        dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                                    )
+                                    .frame(
+                                        minWidth: 0,
+                                        maxWidth: .infinity,
+                                        alignment: .trailing
+                                    )
+                            }
                         }
                     }
+                    .padding(.vertical, 10.0)
                 }
                 .onDelete(perform: eventsViewModel.deleteEventItem)
             }

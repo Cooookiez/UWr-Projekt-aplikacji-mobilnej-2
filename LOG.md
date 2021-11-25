@@ -12,5 +12,9 @@
 
 ## Etap 2
 
-- [2021-11-21] Usuwanie eventów
-- [2021-1x-xx] ...
+- [2021-11-21] **Usuwanie eventów**
+- [2021-11-24]
+  - **Testowa iconka** (potrzebna do następnego kroku)
+  - **Dodanie do Testowej aplikacji** (coś jak appstore)
+- [2021-11-25] **Lekka zmiana layoutu** (Format daty, "days" poszło na dół by zrobi więcej miejsca na liczbe dni, liczba dni jest większa)
+- [2021-11-xx] ...
