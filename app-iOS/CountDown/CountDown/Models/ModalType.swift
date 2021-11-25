@@ -2,7 +2,7 @@
 //  ModalType.swift
 //  CountDown
 //
-//  Created by Krzysztof Kukiz on 21/11/2021.
+//  Created by Krzysztof Kukiz on 11/11/2021.
 //
 
 import SwiftUI

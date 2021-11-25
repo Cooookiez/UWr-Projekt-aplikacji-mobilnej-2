@@ -70,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				0E92C79A2732F82A0054308C /* EventsModel.swift */,
+				0E43E0542749E17D004FDFD2 /* ModalType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -110,7 +111,6 @@
 				0E57520D2732F29000B4C5A1 /* Persistence.swift */,
 				0E57520F2732F29000B4C5A1 /* CountDown.xcdatamodeld */,
 				0E57520A2732F29000B4C5A1 /* Preview Content */,
-				0E43E0542749E17D004FDFD2 /* ModalType.swift */,
 			);
 			path = CountDown;
 			sourceTree = "<group>";

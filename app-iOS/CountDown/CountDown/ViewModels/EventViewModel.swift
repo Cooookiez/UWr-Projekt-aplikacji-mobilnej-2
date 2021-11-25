@@ -2,7 +2,7 @@
 //  EventViewModel.swift
 //  CountDown
 //
-//  Created by Krzysztof Kukiz on 16/11/2021.
+//  Created by Krzysztof Kukiz on 10/11/2021.
 //
 
 import Foundation
