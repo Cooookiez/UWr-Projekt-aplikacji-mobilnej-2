@@ -38,28 +38,20 @@ struct ContentView: View {
                     Button {
                         modalType = .update(eventItems)
                     } label: {
-                        HStack {
-                            VStack {
+                        HStack(alignment: .center) {
+                            VStack(alignment: .leading) {
                                 Text(eventItems.name)
                                     .font(.title2)
                                     .foregroundColor(Color(UIColor.label))
                                     .lineLimit(1)
-                                    .frame(
-                                        minWidth: 0,
-                                        maxWidth: .infinity,
-                                        alignment: .leading
-                                    )
                                 Text("\(sTargetDay).\(sTargetMonth).\(String(sTargetYear))")
                                     .font(.subheadline)
+                                    .multilineTextAlignment(.leading)
                                     .lineLimit(1)
                                     .foregroundColor(Color(UIColor.secondaryLabel))
-                                    .frame(
-                                        minWidth: 0,
-                                        maxWidth: .infinity,
-                                        alignment: .leading
-                                    )
                             }
-                            VStack {
+                            Spacer()
+                            VStack(alignment: .trailing) {
                                 Text("\(dayLeft)")
                                     .font(.largeTitle)
                                     .fontWeight(.medium)
@@ -68,10 +60,9 @@ struct ContentView: View {
                                     )
                                     .multilineTextAlignment(.trailing)
                                     .lineLimit(1)
-                                    .frame(
-                                        minWidth: 0,
-                                        maxWidth: .infinity,
-                                        alignment: .trailing
+                                    .fixedSize(
+                                        horizontal: true,
+                                        vertical: false
                                     )
                                 Text("Days")
                                     .font(.system(size: 12))
@@ -81,13 +72,15 @@ struct ContentView: View {
                                     .foregroundColor(
                                         dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
                                     )
-                                    .frame(
-                                        minWidth: 0,
-                                        maxWidth: .infinity,
-                                        alignment: .trailing
-                                    )
                             }
                         }
+                        .padding()
+                        .frame(
+                            minWidth: 0,
+                            maxWidth: .infinity,
+                            minHeight: 0,
+                            maxHeight: .infinity
+                        )
                     }
                     .padding(.vertical, 10.0)
                 }
@@ -127,6 +120,9 @@ extension String {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(EventsViewModel())
+        ContentView()
+            .preferredColorScheme(.dark)
             .environmentObject(EventsViewModel())
     }
 }
