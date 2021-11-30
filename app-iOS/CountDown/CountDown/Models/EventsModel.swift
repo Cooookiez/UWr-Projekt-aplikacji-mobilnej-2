@@ -42,10 +42,22 @@ struct EventsModel: Identifiable, Codable {
     
     static var sampleData: [EventsModel] {
         [
-            EventsModel(name: "Etap 0"),
-            EventsModel(name: "Etap 1"),
-            EventsModel(name: "Etap 2"),
-            EventsModel(name: "Etap 3"),
+            EventsModel(name: "Testy 1"),
+            EventsModel(name: "Testy 2"),
+            EventsModel(name: "Testy 3"),
+            EventsModel(name: "Testy 4"),
+            EventsModel(name: "Testy 5"),
+            EventsModel(name: "Testy 6"),
+            EventsModel(name: "Testy 7"),
+            EventsModel(name: "Testy 8"),
+            EventsModel(name: "Testy 9"),
+            EventsModel(name: "Testy 10"),
+            EventsModel(name: "Testy 11"),
+            EventsModel(name: "Testy 12"),
+            EventsModel(name: "Testy 13"),
+            EventsModel(name: "Testy 14"),
+            EventsModel(name: "Testy 15"),
+            EventsModel(name: "Testy 16"),
         ]
     }
     

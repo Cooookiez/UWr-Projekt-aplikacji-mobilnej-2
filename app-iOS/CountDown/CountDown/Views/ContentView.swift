@@ -44,11 +44,13 @@ struct ContentView: View {
                                     .font(.title2)
                                     .foregroundColor(Color(UIColor.label))
                                     .lineLimit(1)
+                                    .background(.red)
                                 Text("\(sTargetDay).\(sTargetMonth).\(String(sTargetYear))")
                                     .font(.subheadline)
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(1)
                                     .foregroundColor(Color(UIColor.secondaryLabel))
+                                    .background(.blue)
                             }
                             Spacer()
                             VStack(alignment: .trailing) {
@@ -64,6 +66,7 @@ struct ContentView: View {
                                         horizontal: true,
                                         vertical: false
                                     )
+                                    .background(.green)
                                 Text("Days")
                                     .font(.system(size: 12))
                                     .fontWeight(.medium)
@@ -72,6 +75,7 @@ struct ContentView: View {
                                     .foregroundColor(
                                         dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
                                     )
+                                    .background(.pink)
                             }
                         }
                         .padding()

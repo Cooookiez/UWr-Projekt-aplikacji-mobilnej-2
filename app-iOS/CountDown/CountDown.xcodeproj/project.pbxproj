@@ -19,7 +19,40 @@
 		0E5752112732F29000B4C5A1 /* CountDown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E57520F2732F29000B4C5A1 /* CountDown.xcdatamodeld */; };
 		0E92C79B2732F82A0054308C /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92C79A2732F82A0054308C /* EventsModel.swift */; };
 		0E92C79E2732FA4A0054308C /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92C79D2732FA4A0054308C /* EventsViewModel.swift */; };
+		0EAEDFB2275582F70012B481 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAEDFB1275582F70012B481 /* WidgetKit.framework */; };
+		0EAEDFB4275582F70012B481 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAEDFB3275582F70012B481 /* SwiftUI.framework */; };
+		0EAEDFB7275582F70012B481 /* widgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEDFB6275582F70012B481 /* widgetList.swift */; };
+		0EAEDFB9275582F90012B481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAEDFB8275582F90012B481 /* Assets.xcassets */; };
+		0EAEDFBD275582F90012B481 /* widgetListExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0EAEDFAF275582F70012B481 /* widgetListExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0EAEDFC2275583C60012B481 /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92C79A2732F82A0054308C /* EventsModel.swift */; };
+		0EAEDFC5275583FC0012B481 /* ListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEDFC3275583F40012B481 /* ListEntry.swift */; };
+		0EAEDFC92755877C0012B481 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEDFC82755877C0012B481 /* Provider.swift */; };
+		0EAEDFCC2755886B0012B481 /* mediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEDFCB2755886B0012B481 /* mediumView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0EAEDFBB275582F90012B481 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E5751F92732F28E00B4C5A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EAEDFAE275582F70012B481;
+			remoteInfo = widgetListExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0EAEDFBE275582F90012B481 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0EAEDFBD275582F90012B481 /* widgetListExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E43E04D2749D1D2004FDFD2 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
@@ -35,6 +68,15 @@
 		0E5752102732F29000B4C5A1 /* CountDown.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CountDown.xcdatamodel; sourceTree = "<group>"; };
 		0E92C79A2732F82A0054308C /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
 		0E92C79D2732FA4A0054308C /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		0EAEDFAF275582F70012B481 /* widgetListExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widgetListExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EAEDFB1275582F70012B481 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0EAEDFB3275582F70012B481 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0EAEDFB6275582F70012B481 /* widgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = widgetList.swift; sourceTree = "<group>"; };
+		0EAEDFB8275582F90012B481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0EAEDFBA275582F90012B481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EAEDFC3275583F40012B481 /* ListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntry.swift; sourceTree = "<group>"; };
+		0EAEDFC82755877C0012B481 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		0EAEDFCB2755886B0012B481 /* mediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mediumView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +84,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EAEDFAC275582F70012B481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EAEDFB4275582F70012B481 /* SwiftUI.framework in Frameworks */,
+				0EAEDFB2275582F70012B481 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				0E5752032732F28E00B4C5A1 /* CountDown */,
+				0EAEDFB5275582F70012B481 /* widgetList */,
+				0EAEDFB0275582F70012B481 /* Frameworks */,
 				0E5752022732F28E00B4C5A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				0E5752012732F28E00B4C5A1 /* CountDown.app */,
+				0EAEDFAF275582F70012B481 /* widgetListExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +177,36 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0EAEDFB0275582F70012B481 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EAEDFB1275582F70012B481 /* WidgetKit.framework */,
+				0EAEDFB3275582F70012B481 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0EAEDFB5275582F70012B481 /* widgetList */ = {
+			isa = PBXGroup;
+			children = (
+				0EAEDFCA275587EF0012B481 /* Views */,
+				0EAEDFB6275582F70012B481 /* widgetList.swift */,
+				0EAEDFB8275582F90012B481 /* Assets.xcassets */,
+				0EAEDFBA275582F90012B481 /* Info.plist */,
+				0EAEDFC3275583F40012B481 /* ListEntry.swift */,
+				0EAEDFC82755877C0012B481 /* Provider.swift */,
+			);
+			path = widgetList;
+			sourceTree = "<group>";
+		};
+		0EAEDFCA275587EF0012B481 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0EAEDFCB2755886B0012B481 /* mediumView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,15 +217,34 @@
 				0E5751FD2732F28E00B4C5A1 /* Sources */,
 				0E5751FE2732F28E00B4C5A1 /* Frameworks */,
 				0E5751FF2732F28E00B4C5A1 /* Resources */,
+				0EAEDFBE275582F90012B481 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0EAEDFBC275582F90012B481 /* PBXTargetDependency */,
 			);
 			name = CountDown;
 			productName = CountDown;
 			productReference = 0E5752012732F28E00B4C5A1 /* CountDown.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0EAEDFAE275582F70012B481 /* widgetListExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EAEDFC1275582F90012B481 /* Build configuration list for PBXNativeTarget "widgetListExtension" */;
+			buildPhases = (
+				0EAEDFAB275582F70012B481 /* Sources */,
+				0EAEDFAC275582F70012B481 /* Frameworks */,
+				0EAEDFAD275582F70012B481 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = widgetListExtension;
+			productName = widgetListExtension;
+			productReference = 0EAEDFAF275582F70012B481 /* widgetListExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -154,6 +257,9 @@
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					0E5752002732F28E00B4C5A1 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					0EAEDFAE275582F70012B481 = {
 						CreatedOnToolsVersion = 13.1;
 					};
 				};
@@ -172,6 +278,7 @@
 			projectRoot = "";
 			targets = (
 				0E5752002732F28E00B4C5A1 /* CountDown */,
+				0EAEDFAE275582F70012B481 /* widgetListExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -183,6 +290,14 @@
 			files = (
 				0E57520C2732F29000B4C5A1 /* Preview Assets.xcassets in Resources */,
 				0E5752092732F29000B4C5A1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EAEDFAD275582F70012B481 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EAEDFB9275582F90012B481 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +321,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0EAEDFAB275582F70012B481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EAEDFCC2755886B0012B481 /* mediumView.swift in Sources */,
+				0EAEDFC92755877C0012B481 /* Provider.swift in Sources */,
+				0EAEDFC2275583C60012B481 /* EventsModel.swift in Sources */,
+				0EAEDFB7275582F70012B481 /* widgetList.swift in Sources */,
+				0EAEDFC5275583FC0012B481 /* ListEntry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0EAEDFBC275582F90012B481 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EAEDFAE275582F70012B481 /* widgetListExtension */;
+			targetProxy = 0EAEDFBB275582F90012B481 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0E5752122732F29000B4C5A1 /* Debug */ = {
@@ -328,6 +463,7 @@
 		0E5752152732F29000B4C5A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -358,6 +494,7 @@
 		0E5752162732F29000B4C5A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -385,6 +522,60 @@
 			};
 			name = Release;
 		};
+		0EAEDFBF275582F90012B481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H7J9WA8W73;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = widgetList/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = widgetList;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.cookiez.CountDown.widgetList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0EAEDFC0275582F90012B481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H7J9WA8W73;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = widgetList/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = widgetList;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.cookiez.CountDown.widgetList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -402,6 +593,15 @@
 			buildConfigurations = (
 				0E5752152732F29000B4C5A1 /* Debug */,
 				0E5752162732F29000B4C5A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EAEDFC1275582F90012B481 /* Build configuration list for PBXNativeTarget "widgetListExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EAEDFBF275582F90012B481 /* Debug */,
+				0EAEDFC0275582F90012B481 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
