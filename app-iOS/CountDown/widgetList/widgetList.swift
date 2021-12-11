@@ -9,11 +9,12 @@ import WidgetKit
 import SwiftUI
 
 struct widgetListEntryView : View {
+    @EnvironmentObject var listEventModel: ListEventModel
     var entry: Provider.Entry
     var body: some View {
         let calendar = Calendar.current
         let currentDate = Date()
-        let maxItems = 5;
+        let maxItems = 5 <= entry.events.count ? 5 : entry.events.count;
 //        var index: Int = 0
 //        LazyVStack {
 //            ForEach(1...10, id: \.self) { count in
@@ -27,6 +28,8 @@ struct widgetListEntryView : View {
                 let date2 = calendar.startOfDay(for: eventItems.date)
                 let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
                 let dayLeft = leftComponents.day ?? -1
+                let component = DateComponents(day: dayLeft)
+                let futureDate = Calendar.current.date(byAdding: component, to: currentDate)
                 HStack(alignment: .top) {
                     Text("\(eventItems.name)")
                         .multilineTextAlignment(.leading)
@@ -37,6 +40,10 @@ struct widgetListEntryView : View {
                             alignment: .leading
                         )
                         .lineLimit(1)
+                    Text(futureDate!, style: .relative)
+                        .padding(.horizontal, 8.0)
+                        .background(.blue)
+                        .foregroundColor(.red)
                     Text("\(dayLeft) " + "Days")
 //                        .background(.pink)
                         .multilineTextAlignment(.trailing)
@@ -54,13 +61,19 @@ struct widgetListEntryView : View {
 //                .background(.yellow)
             }
             .padding(.vertical, 0.2)
-            .padding(.horizontal, 20.0)
+            .padding(.horizontal, 30.0)
             .frame(
                 minWidth: 0,
                 maxWidth: .infinity
             )
         }
-//        .background(.green)
+        .padding(.vertical, 3.0)
+        .background(.green)
+        .frame(
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .topLeading
+        )
     }
     
 //    @Environment(\.widgetFamily) var family
@@ -101,5 +114,9 @@ struct widgetList_Previews: PreviewProvider {
             .previewDevice("iPhone 13 mini")
             .environment(\.sizeCategory, .medium)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
+        widgetListEntryView(entry: ListEntry.mockListEntry())
+            .previewDevice("iPhone 13 Pro Max")
+            .environment(\.sizeCategory, .medium)
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

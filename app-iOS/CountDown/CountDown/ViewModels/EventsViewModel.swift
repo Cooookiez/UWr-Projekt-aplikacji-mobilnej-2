@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 class EventsViewModel: ObservableObject {
     @Published var eventItems: [EventsModel] = []
     
     init() {
         print(FileManager.docDirURL.path)
+        print(FileManager().docExist(named: fileName))
         if FileManager().docExist(named: fileName) {
             loadEventItems()
         }
@@ -51,6 +53,9 @@ class EventsViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+//        ForEach (self.eventItems) { item in
+        print("df")
+//        }
         sortList()
     }
     

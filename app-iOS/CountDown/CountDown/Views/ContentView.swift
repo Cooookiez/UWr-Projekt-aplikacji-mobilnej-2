@@ -38,53 +38,56 @@ struct ContentView: View {
                     Button {
                         modalType = .update(eventItems)
                     } label: {
-                        HStack(alignment: .center) {
-                            VStack(alignment: .leading) {
-                                Text(eventItems.name)
-                                    .font(.title2)
-                                    .foregroundColor(Color(UIColor.label))
-                                    .lineLimit(1)
-                                    .background(.red)
-                                Text("\(sTargetDay).\(sTargetMonth).\(String(sTargetYear))")
-                                    .font(.subheadline)
-                                    .multilineTextAlignment(.leading)
-                                    .lineLimit(1)
-                                    .foregroundColor(Color(UIColor.secondaryLabel))
-                                    .background(.blue)
+                        VStack {
+                            HStack(alignment: .center) {
+                                VStack(alignment: .leading) {
+                                    Text(eventItems.name)
+                                        .font(.title2)
+                                        .foregroundColor(Color(UIColor.label))
+                                        .lineLimit(1)
+    //                                    .background(.red)
+                                    Text("\(sTargetDay).\(sTargetMonth).\(String(sTargetYear))")
+                                        .font(.subheadline)
+                                        .multilineTextAlignment(.leading)
+                                        .lineLimit(1)
+                                        .foregroundColor(Color(UIColor.secondaryLabel))
+    //                                    .background(.blue)
+                                }
+                                Spacer()
+                                VStack(alignment: .trailing) {
+                                    Text("\(dayLeft)")
+                                        .font(.largeTitle)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(
+                                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                                        )
+                                        .multilineTextAlignment(.trailing)
+                                        .lineLimit(1)
+                                        .fixedSize(
+                                            horizontal: true,
+                                            vertical: false
+                                        )
+    //                                    .background(.green)
+                                    Text("Days")
+                                        .font(.system(size: 12))
+                                        .fontWeight(.medium)
+                                        .multilineTextAlignment(.trailing)
+                                        .lineLimit(1)
+                                        .foregroundColor(
+                                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                                        )
+    //                                    .background(.pink)
+                                }
                             }
-                            Spacer()
-                            VStack(alignment: .trailing) {
-                                Text("\(dayLeft)")
-                                    .font(.largeTitle)
-                                    .fontWeight(.medium)
-                                    .foregroundColor(
-                                        dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
-                                    )
-                                    .multilineTextAlignment(.trailing)
-                                    .lineLimit(1)
-                                    .fixedSize(
-                                        horizontal: true,
-                                        vertical: false
-                                    )
-                                    .background(.green)
-                                Text("Days")
-                                    .font(.system(size: 12))
-                                    .fontWeight(.medium)
-                                    .multilineTextAlignment(.trailing)
-                                    .lineLimit(1)
-                                    .foregroundColor(
-                                        dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
-                                    )
-                                    .background(.pink)
-                            }
+                            .padding()
+                            .frame(
+                                minWidth: 0,
+                                maxWidth: .infinity,
+                                minHeight: 0,
+                                maxHeight: .infinity
+                            )
+                            Text("\(eventItems.date)")
                         }
-                        .padding()
-                        .frame(
-                            minWidth: 0,
-                            maxWidth: .infinity,
-                            minHeight: 0,
-                            maxHeight: .infinity
-                        )
                     }
                     .padding(.vertical, 10.0)
                 }
