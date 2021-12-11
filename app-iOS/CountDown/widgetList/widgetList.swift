@@ -29,7 +29,7 @@ struct widgetListEntryView : View {
                 let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
                 let dayLeft = leftComponents.day ?? -1
                 let component = DateComponents(day: dayLeft)
-                let futureDate = Calendar.current.date(byAdding: component, to: currentDate)
+//                let futureDate = Calendar.current.date(byAdding: component, to: currentDate)
                 HStack(alignment: .top) {
                     Text("\(eventItems.name)")
                         .multilineTextAlignment(.leading)
@@ -40,10 +40,10 @@ struct widgetListEntryView : View {
                             alignment: .leading
                         )
                         .lineLimit(1)
-                    Text(futureDate!, style: .relative)
-                        .padding(.horizontal, 8.0)
-                        .background(.blue)
-                        .foregroundColor(.red)
+//                    Text(futureDate!, style: .relative)
+//                        .padding(.horizontal, 8.0)
+////                        .background(.blue)
+//                        .foregroundColor(.red)
                     Text("\(dayLeft) " + "Days")
 //                        .background(.pink)
                         .multilineTextAlignment(.trailing)
@@ -68,7 +68,7 @@ struct widgetListEntryView : View {
             )
         }
         .padding(.vertical, 3.0)
-        .background(.green)
+//        .background(.green)
         .frame(
             minHeight: 0,
             maxHeight: .infinity,

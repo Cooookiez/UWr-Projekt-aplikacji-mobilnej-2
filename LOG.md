@@ -19,5 +19,7 @@
 - [2021-11-25] **Zmiana layoutu** (Format daty, "days" poszło na dół by zrobi więcej miejsca na liczbe dni, liczba dni jest większa)
 - [2021-11-26] **Zmiana layoutu** (Liczba dni nie jest kropkowana("...") bo wymusza miejsce dla siebie)
 - [2021-11-29] **Zmienienie wybierania daty na "Wheel"**
-- [2021-12-11] **Pliki z głównej aplikacji są widoczne przez widget**
+- [2021-12-11]
+  - **Pliki z głównej aplikacji są widoczne przez widget**
+  - **Widget sie updatuje gdy dane się zmienią**
 - [2021-12-xx] ...

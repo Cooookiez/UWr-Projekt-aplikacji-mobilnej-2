@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import WidgetKit
 
 class EventsViewModel: ObservableObject {
     @Published var eventItems: [EventsModel] = []
@@ -23,6 +24,7 @@ class EventsViewModel: ObservableObject {
         eventItems.append(eventItemModel)
         sortList()
         saveEventItems()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func updateEventItem(_ event: EventsModel) {
@@ -30,12 +32,14 @@ class EventsViewModel: ObservableObject {
         eventItems[index] = event
         sortList()
         saveEventItems()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func deleteEventItem(at indexSet: IndexSet) {
         eventItems.remove(atOffsets: indexSet)
         sortList()
         saveEventItems()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func loadEventItems() {
