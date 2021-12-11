@@ -28,7 +28,7 @@ struct widgetListEntryView : View {
                 let date2 = calendar.startOfDay(for: eventItems.date)
                 let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
                 let dayLeft = leftComponents.day ?? -1
-                let component = DateComponents(day: dayLeft)
+//                let component = DateComponents(day: dayLeft)
 //                let futureDate = Calendar.current.date(byAdding: component, to: currentDate)
                 HStack(alignment: .top) {
                     Text("\(eventItems.name)")

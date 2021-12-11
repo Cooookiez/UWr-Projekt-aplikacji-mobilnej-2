@@ -35,7 +35,7 @@ App for IOS systems
 ### 🕥 Etap 2
 
 - [x] Deleting events from the list
-- [ ] Prototype widget (showing the first few events with the number of days remaining)
+- [x] Prototype widget (showing the first few events with the number of days remaining)
 
 ### 🕤 Etap 3
 
