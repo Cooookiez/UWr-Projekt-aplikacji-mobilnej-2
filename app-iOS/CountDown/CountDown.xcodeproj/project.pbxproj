@@ -58,6 +58,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E025D4D2765326B004F8BDE /* CountDown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CountDown.entitlements; sourceTree = "<group>"; };
+		0E025D4E276532C0004F8BDE /* CountDownRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CountDownRelease.entitlements; sourceTree = "<group>"; };
+		0E025D4F276532E0004F8BDE /* widgetListExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetListExtension.entitlements; sourceTree = "<group>"; };
+		0E025D50276532EC004F8BDE /* widgetListExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetListExtensionRelease.entitlements; sourceTree = "<group>"; };
 		0E43E04D2749D1D2004FDFD2 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 		0E43E04F2749D4DC004FDFD2 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		0E43E0542749E17D004FDFD2 /* ModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalType.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 		0E5751F82732F28E00B4C5A1 = {
 			isa = PBXGroup;
 			children = (
+				0E025D50276532EC004F8BDE /* widgetListExtensionRelease.entitlements */,
+				0E025D4F276532E0004F8BDE /* widgetListExtension.entitlements */,
 				0E5752032732F28E00B4C5A1 /* CountDown */,
 				0EAEDFB5275582F70012B481 /* widgetList */,
 				0EAEDFB0275582F70012B481 /* Frameworks */,
@@ -160,6 +166,8 @@
 		0E5752032732F28E00B4C5A1 /* CountDown */ = {
 			isa = PBXGroup;
 			children = (
+				0E025D4E276532C0004F8BDE /* CountDownRelease.entitlements */,
+				0E025D4D2765326B004F8BDE /* CountDown.entitlements */,
 				0E5752042732F28E00B4C5A1 /* CountDownApp.swift */,
 				0E43E0532749E0A5004FDFD2 /* Models */,
 				0E43E0522749E0A1004FDFD2 /* Views */,
@@ -482,6 +490,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CountDown/CountDown.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"CountDown/Preview Content\"";
@@ -513,6 +522,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CountDown/CountDownRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"CountDown/Preview Content\"";
@@ -543,6 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = widgetListExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H7J9WA8W73;
@@ -570,6 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = widgetListExtensionRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H7J9WA8W73;

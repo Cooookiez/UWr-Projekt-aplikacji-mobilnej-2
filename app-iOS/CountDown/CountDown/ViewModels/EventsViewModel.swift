@@ -12,8 +12,8 @@ class EventsViewModel: ObservableObject {
     @Published var eventItems: [EventsModel] = []
     
     init() {
-        print(FileManager.docDirURL.path)
-        print(FileManager().docExist(named: fileName))
+        print("docDirURL.path: \(FileManager.docDirURL.path)")
+        print("docExist: \(FileManager().docExist(named: fileName))")
         if FileManager().docExist(named: fileName) {
             loadEventItems()
         }
