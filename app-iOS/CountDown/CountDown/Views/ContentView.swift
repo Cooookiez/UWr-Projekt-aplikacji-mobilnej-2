@@ -38,34 +38,58 @@ struct ContentView: View {
                     Button {
                         modalType = .update(eventItems)
                     } label: {
-                        HStack {
-                            VStack {
-                                Text(eventItems.name)
-                                    .font(.title2)
-                                    .foregroundColor(Color(UIColor.label))
-                                    .lineLimit(1)
-                                    .frame(
-                                        minWidth: 0,
-                                        maxWidth: .infinity,
-                                        alignment: .leading
-                                    )
-                                Text("\(sTargetDay) / \(sTargetMonth) / \(String(sTargetYear))")
-                                    .font(.subheadline)
-                                    .lineLimit(1)
-                                    .foregroundColor(Color(UIColor.secondaryLabel))
-                                    .frame(
-                                        minWidth: 0,
-                                        maxWidth: .infinity,
-                                        alignment: .leading
-                                    )
+                        VStack {
+                            HStack(alignment: .center) {
+                                VStack(alignment: .leading) {
+                                    Text(eventItems.name)
+                                        .font(.title2)
+                                        .foregroundColor(Color(UIColor.label))
+                                        .lineLimit(1)
+    //                                    .background(.red)
+                                    Text("\(sTargetDay).\(sTargetMonth).\(String(sTargetYear))")
+                                        .font(.subheadline)
+                                        .multilineTextAlignment(.leading)
+                                        .lineLimit(1)
+                                        .foregroundColor(Color(UIColor.secondaryLabel))
+    //                                    .background(.blue)
+                                }
+                                Spacer()
+                                VStack(alignment: .trailing) {
+                                    Text("\(dayLeft)")
+                                        .font(.largeTitle)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(
+                                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                                        )
+                                        .multilineTextAlignment(.trailing)
+                                        .lineLimit(1)
+                                        .fixedSize(
+                                            horizontal: true,
+                                            vertical: false
+                                        )
+    //                                    .background(.green)
+                                    Text("Days")
+                                        .font(.system(size: 12))
+                                        .fontWeight(.medium)
+                                        .multilineTextAlignment(.trailing)
+                                        .lineLimit(1)
+                                        .foregroundColor(
+                                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                                        )
+    //                                    .background(.pink)
+                                }
                             }
-                            Text("\(dayLeft) days")
-                                .font(.title2)
-                                .fontWeight(.medium)
-                                .foregroundColor(dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel))
-                                .lineLimit(1)
+                            .padding()
+                            .frame(
+                                minWidth: 0,
+                                maxWidth: .infinity,
+                                minHeight: 0,
+                                maxHeight: .infinity
+                            )
+//                            Text("\(eventItems.date)")
                         }
                     }
+                    .padding(.vertical, 10.0)
                 }
                 .onDelete(perform: eventsViewModel.deleteEventItem)
             }
@@ -103,6 +127,9 @@ extension String {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(EventsViewModel())
+        ContentView()
+            .preferredColorScheme(.dark)
             .environmentObject(EventsViewModel())
     }
 }

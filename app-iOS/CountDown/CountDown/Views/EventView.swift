@@ -2,7 +2,7 @@
 //  EventView.swift
 //  CountDown
 //
-//  Created by Krzysztof Kukiz on 21/11/2021.
+//  Created by Krzysztof Kukiz on 05/11/2021.
 //
 
 import SwiftUI
@@ -12,12 +12,26 @@ struct EventView: View {
     @ObservedObject var eventViewModel: EventViewModel
     @Environment(\.presentationMode) var presenationMode
     @State var selectedDate = Date()
+    private let paddingSize: CGFloat = 10
     var body: some View {
         NavigationView {
             Form {
-                VStack(alignment: .leading) {
-                    TextField("Name", text: $eventViewModel.eventItem.name)
-                    DatePicker("Date:", selection: $eventViewModel.eventItem.date, displayedComponents: .date)
+                Section(header: Text("Title")) {
+                    TextField("Start typing . . .", text: $eventViewModel.eventItem.name)
+                        .padding(.top, paddingSize/2)
+                        .padding(.bottom, paddingSize/2)
+                }
+                Section(header: Text("Date")) {
+                    VStack(alignment: .leading) {
+                        DatePicker(
+                            selection: $eventViewModel.eventItem.date,
+                            displayedComponents: .date,
+                            label: { Text("Date") }
+                        )
+                            .padding(.top, paddingSize/2)
+                            .padding(.bottom, paddingSize/2)
+                            .datePickerStyle(.wheel)
+                    }
                 }
             }
             .navigationTitle("Event")

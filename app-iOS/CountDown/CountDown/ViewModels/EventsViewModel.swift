@@ -6,34 +6,61 @@
 //
 
 import Foundation
+import SwiftUI
+import WidgetKit
 
 class EventsViewModel: ObservableObject {
     @Published var eventItems: [EventsModel] = []
     
     init() {
-        print(FileManager.docDirURL.path)
+        print("docDirURL.path: \(FileManager.docDirURL.path)")
+        print("docExist: \(FileManager().docExist(named: fileName))")
         if FileManager().docExist(named: fileName) {
             loadEventItems()
         }
     }
     
     func addEventItem(_ eventItemModel: EventsModel) {
-        eventItems.append(eventItemModel)
+        var newEvent = eventItemModel
+        newEvent.date = makeHoureAndMinuteEtcTo0(date: newEvent.date)
+        eventItems.append(newEvent)
         sortList()
         saveEventItems()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func updateEventItem(_ event: EventsModel) {
         guard let index = eventItems.firstIndex(where: { $0.id == event.id }) else { return }
-        eventItems[index] = event
+        var newEvent = event
+        newEvent.date = makeHoureAndMinuteEtcTo0(date: newEvent.date)
+        eventItems[index] = newEvent
         sortList()
         saveEventItems()
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+    // make hopur and minute 0
+    func makeHoureAndMinuteEtcTo0(date: Date) -> Date {
+        let calendar = Calendar.current
+        let targetComponents = calendar.dateComponents([.day, .month, .year], from: date)
+        let dateComponents = DateComponents(
+            calendar: calendar,
+            year: targetComponents.year,
+            month: targetComponents.month,
+            day: targetComponents.day,
+            hour: 0,
+            minute: 0,
+            second: 0,
+            nanosecond: 0
+        )
+        let newDade: Date = calendar.date(from: dateComponents) ?? date
+        return newDade
     }
     
     func deleteEventItem(at indexSet: IndexSet) {
         eventItems.remove(atOffsets: indexSet)
         sortList()
         saveEventItems()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func loadEventItems() {
@@ -51,6 +78,9 @@ class EventsViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+//        ForEach (self.eventItems) { item in
+        print("df")
+//        }
         sortList()
     }
     
