@@ -19,12 +19,13 @@ App for IOS systems
 | -- | :----- | -: |
 | ✅ | Etap 0 | 18 / 10 / 2021 |
 | ✅ | Etap 1 | 22 / 11 / 2021 |
-| 🕦 | Etap 2 | 13 / 12 / 2021 |
-| 🕥 | Etap 3 | 10 / 01 / 2022 |
+| ✅ | Etap 2 | 13 / 12 / 2021 |
+| 🕦 | Etap 3 | 10 / 01 / 2022 |
+| 🕥 | Etap 4 | 17 / 01 / 2022 |
 
 ## Etaps
 
-### 🕦 Etap 1
+### ✅ Etap 1
 
 - [x] Event list
   - [x] Event list view with items (title, days to the end, etc.)
@@ -32,12 +33,14 @@ App for IOS systems
 - [x] Edit event view
 - [x] Saving events data
 
-### 🕥 Etap 2
+### ✅ Etap 2
 
 - [x] Deleting events from the list
 - [x] Prototype widget (showing the first few events with the number of days remaining)
 
-### 🕤 Etap 3
+### 🕦 Etap 3
 
 - [ ] Widget (as visually pleasing as possible)
 - [ ] Application icon
+
+### 🕥 Etap 4 (Prezentacja końcowa)

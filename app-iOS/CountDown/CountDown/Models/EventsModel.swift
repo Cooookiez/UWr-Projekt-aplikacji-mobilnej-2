@@ -13,6 +13,7 @@ struct EventsModel: Identifiable, Codable {
     var id: String
     
     init (name: String) {
+        // make date
         self.id = UUID().uuidString
         self.name = name
         self.date = Date()

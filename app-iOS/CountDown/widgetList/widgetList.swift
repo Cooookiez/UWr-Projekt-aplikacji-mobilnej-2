@@ -14,13 +14,7 @@ struct widgetListEntryView : View {
     var body: some View {
         let calendar = Calendar.current
         let currentDate = Date()
-        let maxItems = 5 <= entry.events.count ? 5 : entry.events.count;
-//        var index: Int = 0
-//        LazyVStack {
-//            ForEach(1...10, id: \.self) { count in
-//                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Placeholder \(count)")/*@END_MENU_TOKEN@*/
-//            }
-//        }
+        let maxItems = 4 <= entry.events.count ? 4 : entry.events.count;
         VStack(alignment: .leading) {
             ForEach(0..<maxItems) { i in
                 let eventItems = entry.events[i]
@@ -59,6 +53,10 @@ struct widgetListEntryView : View {
                         )
                 }
 //                .background(.yellow)
+                if (i < maxItems-1) {
+                    Divider()
+                        .padding(.vertical, -0.0)
+                }
             }
             .padding(.vertical, 0.2)
             .padding(.horizontal, 30.0)
@@ -71,8 +69,8 @@ struct widgetListEntryView : View {
 //        .background(.green)
         .frame(
             minHeight: 0,
-            maxHeight: .infinity,
-            alignment: .topLeading
+            maxHeight: .infinity
+//            alignment: .topLeading
         )
     }
     
@@ -112,6 +110,18 @@ struct widgetList_Previews: PreviewProvider {
     static var previews: some View {
         widgetListEntryView(entry: ListEntry.mockListEntry())
             .previewDevice("iPhone 13 mini")
+            .environment(\.sizeCategory, .medium)
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        widgetListEntryView(entry: ListEntry.mockListEntry())
+            .previewDevice("iPhone 13")
+            .environment(\.sizeCategory, .medium)
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        widgetListEntryView(entry: ListEntry.mockListEntry())
+            .previewDevice("iPhone 13 Pro")
+            .environment(\.sizeCategory, .medium)
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        widgetListEntryView(entry: ListEntry.mockListEntry())
+            .previewDevice("iPhone 13 Pro Max")
             .environment(\.sizeCategory, .medium)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
         widgetListEntryView(entry: ListEntry.mockListEntry())

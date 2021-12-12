@@ -86,7 +86,7 @@ struct ContentView: View {
                                 minHeight: 0,
                                 maxHeight: .infinity
                             )
-                            Text("\(eventItems.date)")
+//                            Text("\(eventItems.date)")
                         }
                     }
                     .padding(.vertical, 10.0)

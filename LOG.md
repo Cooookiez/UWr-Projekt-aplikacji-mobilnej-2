@@ -22,4 +22,9 @@
 - [2021-12-11]
   - **Pliki z głównej aplikacji są widoczne przez widget**
   - **Widget sie updatuje gdy dane się zmienią**
+- [2021-12-12] **Troche lepiej wyglada widget**
+- [2021-12-12] **Godzina i munutra jest zawsze ustawiona na 00:00.00000000000** (wczesniej ustawialo godzine stworzenia / edycji)
+
+## Etap 3
+
 - [2021-12-xx] ...
