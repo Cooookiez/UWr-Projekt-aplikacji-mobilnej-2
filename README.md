@@ -41,6 +41,6 @@ App for IOS systems
 ### 🕦 Etap 3
 
 - [ ] Widget (as visually pleasing as possible)
-- [ ] Application icon
+- [x] Application icon
 
 ### 🕥 Etap 4 (Prezentacja końcowa)
