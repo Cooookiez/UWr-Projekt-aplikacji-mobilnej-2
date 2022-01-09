@@ -37,7 +37,8 @@
   - **Opis widgetow**
   - **Wysłanie prośby o dodanie do sklepu**
   - **Wygenerowanie polityki prywatnosci**
+  - **Send for Review to AppStore**
 
 ## Prezentacja końcowa
 
-- [2022-01-XX] 
+- [2022-01-XX] ...
