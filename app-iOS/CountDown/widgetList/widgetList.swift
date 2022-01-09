@@ -9,12 +9,43 @@ import WidgetKit
 import SwiftUI
 
 struct widgetListEntryView : View {
-    @EnvironmentObject var listEventModel: ListEventModel
+    
+
+//    @ViewBuilder
+//    var body: some View {
+//        switch family {
+//        case .systemMedium:
+//            mediumView(events: entry.events)
+//        case .systemLarge:
+//        default:
+//            fatalError()
+//        }
+////            Text(entry.date, style: .time)
+//    }
+    
+    @Environment(\.widgetFamily) var family
+    func getMaxItems() -> Int {
+        
+        var maxItems: Int = 0;
+        switch family {
+            case .systemMedium:
+                maxItems = 5;
+                break;
+            case .systemLarge:
+                maxItems = 13;
+                break;
+            default:
+                fatalError();
+                break;
+        }
+        return maxItems
+    }
     var entry: Provider.Entry
+    @EnvironmentObject var listEventModel: ListEventModel
     var body: some View {
         let calendar = Calendar.current
         let currentDate = Date()
-        let maxItems = 5 <= entry.events.count ? 5 : entry.events.count;
+        let maxItems = getMaxItems() <= entry.events.count ? getMaxItems() : entry.events.count;
         let textSize: CGFloat = 10;
         let textPadding: CGFloat = -0.5;
         VStack(alignment: .leading) {
@@ -34,6 +65,9 @@ struct widgetListEntryView : View {
                         )
                         .lineLimit(1)
                         .font(.system(size: textSize))
+                        .foregroundColor(
+                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                        )
                     Text("\(dayLeft) " + "Days")
                         .multilineTextAlignment(.trailing)
                         .frame(
@@ -69,20 +103,6 @@ struct widgetListEntryView : View {
             maxHeight: .infinity
         )
     }
-    
-//    @Environment(\.widgetFamily) var family
-//
-//    @ViewBuilder
-//    var body: some View {
-//        switch family {
-//        case .systemMedium:
-//            mediumView(events: entry.events)
-//        case .systemLarge:
-//        default:
-//            fatalError()
-//        }
-//        Text(entry.date, style: .time)
-//    }
 }
 
 @main
@@ -93,8 +113,8 @@ struct widgetList: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             widgetListEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("CountDown Widget")
+        .description("List your item and show how many days to the end")
         .supportedFamilies([
             .systemMedium,
             .systemLarge
