@@ -27,5 +27,12 @@
 
 ## Etap 3
 
-- [2021-12-13] Ikona
-- [2021-12-xx] ...
+- [2021-12-13] **Ikona** (Raczej coś jeszcze zmienie bo coś mi w jej nie pasuje, ale nie wiem co)
+- [2022-01-02] **Ikona** co mi się podoba
+- [2022-01-04] 
+- [2022-01-05] 
+- [2022-01-09] 
+
+## Prezentacja końcowa
+
+- [2022-01-XX] 

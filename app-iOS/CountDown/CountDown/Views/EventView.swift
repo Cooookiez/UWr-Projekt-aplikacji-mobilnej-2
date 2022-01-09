@@ -26,11 +26,12 @@ struct EventView: View {
                         DatePicker(
                             selection: $eventViewModel.eventItem.date,
                             displayedComponents: .date,
-                            label: { Text("Date") }
+                            label: { Text("") }
                         )
                             .padding(.top, paddingSize/2)
                             .padding(.bottom, paddingSize/2)
                             .datePickerStyle(.wheel)
+                            .labelsHidden()
                     }
                 }
             }
