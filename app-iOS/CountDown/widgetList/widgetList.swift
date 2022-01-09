@@ -14,7 +14,9 @@ struct widgetListEntryView : View {
     var body: some View {
         let calendar = Calendar.current
         let currentDate = Date()
-        let maxItems = 4 <= entry.events.count ? 4 : entry.events.count;
+        let maxItems = 5 <= entry.events.count ? 5 : entry.events.count;
+        let textSize: CGFloat = 10;
+        let textPadding: CGFloat = -0.5;
         VStack(alignment: .leading) {
             ForEach(0..<maxItems) { i in
                 let eventItems = entry.events[i]
@@ -22,24 +24,17 @@ struct widgetListEntryView : View {
                 let date2 = calendar.startOfDay(for: eventItems.date)
                 let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
                 let dayLeft = leftComponents.day ?? -1
-//                let component = DateComponents(day: dayLeft)
-//                let futureDate = Calendar.current.date(byAdding: component, to: currentDate)
                 HStack(alignment: .top) {
                     Text("\(eventItems.name)")
                         .multilineTextAlignment(.leading)
-//                        .background(.blue)
                         .frame(
                             minWidth: 0,
                             maxWidth: .infinity,
                             alignment: .leading
                         )
                         .lineLimit(1)
-//                    Text(futureDate!, style: .relative)
-//                        .padding(.horizontal, 8.0)
-////                        .background(.blue)
-//                        .foregroundColor(.red)
+                        .font(.system(size: textSize))
                     Text("\(dayLeft) " + "Days")
-//                        .background(.pink)
                         .multilineTextAlignment(.trailing)
                         .frame(
                             minWidth: 0,
@@ -51,11 +46,14 @@ struct widgetListEntryView : View {
                             horizontal: true,
                             vertical: false
                         )
+                        .font(.system(size: textSize))
+                        .foregroundColor(
+                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                        )
                 }
-//                .background(.yellow)
                 if (i < maxItems-1) {
                     Divider()
-                        .padding(.vertical, -0.0)
+                        .padding(.vertical, textPadding)
                 }
             }
             .padding(.vertical, 0.2)
@@ -66,11 +64,9 @@ struct widgetListEntryView : View {
             )
         }
         .padding(.vertical, 3.0)
-//        .background(.green)
         .frame(
             minHeight: 0,
             maxHeight: .infinity
-//            alignment: .topLeading
         )
     }
     
