@@ -29,9 +29,14 @@
 
 - [2021-12-13] **Ikona** (Raczej coś jeszcze zmienie bo coś mi w jej nie pasuje, ale nie wiem co)
 - [2022-01-02] **Ikona** co mi się podoba
-- [2022-01-04] 
-- [2022-01-05] 
-- [2022-01-09] 
+- [2022-01-04] Ładnie wyglądający widget Średni
+- [2022-01-07]
+  - **Widget duzy**
+  - **Wysarzone przeszłe wydazenia** (widgety)
+- [2022-01-09]
+  - **Opis widgetow**
+  - **Wysłanie prośby o dodanie do sklepu**
+  - **Wygenerowanie polityki prywatnosci**
 
 ## Prezentacja końcowa
 
