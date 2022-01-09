@@ -9,12 +9,45 @@ import WidgetKit
 import SwiftUI
 
 struct widgetListEntryView : View {
-    @EnvironmentObject var listEventModel: ListEventModel
+    
+
+//    @ViewBuilder
+//    var body: some View {
+//        switch family {
+//        case .systemMedium:
+//            mediumView(events: entry.events)
+//        case .systemLarge:
+//        default:
+//            fatalError()
+//        }
+////            Text(entry.date, style: .time)
+//    }
+    
+    @Environment(\.widgetFamily) var family
+    func getMaxItems() -> Int {
+        
+        var maxItems: Int = 0;
+        switch family {
+            case .systemMedium:
+                maxItems = 5;
+                break;
+            case .systemLarge:
+                maxItems = 13;
+                break;
+            default:
+                fatalError();
+                break;
+        }
+        return maxItems
+    }
     var entry: Provider.Entry
+    @EnvironmentObject var listEventModel: ListEventModel
     var body: some View {
         let calendar = Calendar.current
         let currentDate = Date()
-        let maxItems = 4 <= entry.events.count ? 4 : entry.events.count;
+        let maxItems = getMaxItems() <= entry.events.count ? getMaxItems() : entry.events.count;
+        let textSize: CGFloat = 10;
+        let textPadding: CGFloat = -0.5;
         VStack(alignment: .leading) {
             ForEach(0..<maxItems) { i in
                 let eventItems = entry.events[i]
@@ -22,24 +55,20 @@ struct widgetListEntryView : View {
                 let date2 = calendar.startOfDay(for: eventItems.date)
                 let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
                 let dayLeft = leftComponents.day ?? -1
-//                let component = DateComponents(day: dayLeft)
-//                let futureDate = Calendar.current.date(byAdding: component, to: currentDate)
                 HStack(alignment: .top) {
                     Text("\(eventItems.name)")
                         .multilineTextAlignment(.leading)
-//                        .background(.blue)
                         .frame(
                             minWidth: 0,
                             maxWidth: .infinity,
                             alignment: .leading
                         )
                         .lineLimit(1)
-//                    Text(futureDate!, style: .relative)
-//                        .padding(.horizontal, 8.0)
-////                        .background(.blue)
-//                        .foregroundColor(.red)
+                        .font(.system(size: textSize))
+                        .foregroundColor(
+                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                        )
                     Text("\(dayLeft) " + "Days")
-//                        .background(.pink)
                         .multilineTextAlignment(.trailing)
                         .frame(
                             minWidth: 0,
@@ -51,11 +80,14 @@ struct widgetListEntryView : View {
                             horizontal: true,
                             vertical: false
                         )
+                        .font(.system(size: textSize))
+                        .foregroundColor(
+                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                        )
                 }
-//                .background(.yellow)
                 if (i < maxItems-1) {
                     Divider()
-                        .padding(.vertical, -0.0)
+                        .padding(.vertical, textPadding)
                 }
             }
             .padding(.vertical, 0.2)
@@ -66,27 +98,11 @@ struct widgetListEntryView : View {
             )
         }
         .padding(.vertical, 3.0)
-//        .background(.green)
         .frame(
             minHeight: 0,
             maxHeight: .infinity
-//            alignment: .topLeading
         )
     }
-    
-//    @Environment(\.widgetFamily) var family
-//
-//    @ViewBuilder
-//    var body: some View {
-//        switch family {
-//        case .systemMedium:
-//            mediumView(events: entry.events)
-//        case .systemLarge:
-//        default:
-//            fatalError()
-//        }
-//        Text(entry.date, style: .time)
-//    }
 }
 
 @main
@@ -97,8 +113,8 @@ struct widgetList: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             widgetListEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("CountDown Widget")
+        .description("List your item and show how many days to the end")
         .supportedFamilies([
             .systemMedium,
             .systemLarge
