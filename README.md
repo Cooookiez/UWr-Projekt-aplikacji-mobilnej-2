@@ -2,6 +2,10 @@
 
 App name: CountDown
 
+[Privacy Policy](PrivacyPolicy.md)
+
+[Terms & Conditions](TermsAndConditions.md)
+
 ## Descrioption
 
 The application will have the task of calculating the number of remaining days to the
