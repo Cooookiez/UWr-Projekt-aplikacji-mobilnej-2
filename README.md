@@ -4,6 +4,9 @@
 ![](https://img.shields.io/badge/Ios-15.0+-blue?style=flat-square&logo=apple)
 ![](https://img.shields.io/badge/App%20version-1.0.2-red?style=flat-square)
 
+![qr code](./AppStore/appstore-qr.png)
+[AppStore](https://apps.apple.com/us/app/count-down-days-to-date/id1597135080)
+
 [Privacy Policy](PrivacyPolicy.md)
 
 [Terms & Conditions](TermsAndConditions.md)
