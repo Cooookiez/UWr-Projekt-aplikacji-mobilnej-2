@@ -15,25 +15,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List() {
-                let calendar = Calendar.current
-                let currentDate = Date()
                 
                 ForEach(eventsViewModel.eventItems) { eventItems in
-                    
-                    let targetComponents = calendar.dateComponents([.day, .month, .year], from: eventItems.date)
-                    let targetDay: Int = targetComponents.day ?? 0
-                    let targetMonth: Int = targetComponents.month ?? 0
-                    let targetYear: Int = targetComponents.year ?? 0
-                    
-                    let sTargetDay: String = targetDay > 9 ? String(targetDay) : "0" + String(targetDay)
-                    let sTargetMonth: String = targetMonth > 9 ? String(targetMonth) : "0" + String(targetMonth)
-                    let sTargetYear: String = String(targetYear).leftPadding(toLength: 4, withPad: "0")
-                    
-                    let date1 = calendar.startOfDay(for: currentDate)
-                    let date2 = calendar.startOfDay(for: eventItems.date)
-                    let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
-                    
-                    let dayLeft = leftComponents.day ?? -1
                     
                     Button {
                         modalType = .update(eventItems)
@@ -46,7 +29,7 @@ struct ContentView: View {
                                         .foregroundColor(Color(UIColor.label))
                                         .lineLimit(1)
     //                                    .background(.red)
-                                    Text("\(sTargetDay).\(sTargetMonth).\(String(sTargetYear))")
+                                    Text(eventItems.dateString)
                                         .font(.subheadline)
                                         .multilineTextAlignment(.leading)
                                         .lineLimit(1)
@@ -55,11 +38,11 @@ struct ContentView: View {
                                 }
                                 Spacer()
                                 VStack(alignment: .trailing) {
-                                    Text("\(dayLeft)")
+                                    Text("\(eventItems.dateDaysLeft)")
                                         .font(.largeTitle)
                                         .fontWeight(.medium)
                                         .foregroundColor(
-                                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                                            eventItems.dateDaysLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
                                         )
                                         .multilineTextAlignment(.trailing)
                                         .lineLimit(1)
@@ -74,7 +57,7 @@ struct ContentView: View {
                                         .multilineTextAlignment(.trailing)
                                         .lineLimit(1)
                                         .foregroundColor(
-                                            dayLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
+                                            eventItems.dateDaysLeft >= 0 ? Color(UIColor.label) : Color(UIColor.tertiaryLabel)
                                         )
     //                                    .background(.pink)
                                 }
@@ -110,17 +93,6 @@ struct ContentView: View {
             }
         }
         .sheet(item: $modalType) { $0 }
-    }
-}
-
-extension String {
-    func leftPadding(toLength: Int, withPad character: Character) -> String {
-        let stringLength = self.count
-        if stringLength < toLength {
-            return String(repeatElement(character, count: toLength - stringLength)) + self
-        } else {
-            return String(self.suffix(toLength))
-        }
     }
 }
 

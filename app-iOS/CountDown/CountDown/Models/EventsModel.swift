@@ -7,9 +7,22 @@
 
 import Foundation
 
+extension String {
+    func leftPadding(toLength: Int, withPad character: Character) -> String {
+        let stringLength = self.count
+        if stringLength < toLength {
+            return String(repeatElement(character, count: toLength - stringLength)) + self
+        } else {
+            return String(self.suffix(toLength))
+        }
+    }
+}
+
 struct EventsModel: Identifiable, Codable {
     var name: String
     var date: Date
+    var dateString: String = "00.00.0000"
+    var dateDaysLeft: Int = 0
     var id: String
     
     init (name: String) {
@@ -35,6 +48,28 @@ struct EventsModel: Identifiable, Codable {
         self.id = id
         self.name = name
         self.date = date
+    }
+    
+    mutating func updateDays2Date() {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        
+        let targetComponents = calendar.dateComponents([.day, .month, .year], from: self.date)
+        let targetDay: Int = targetComponents.day ?? 0
+        let targetMonth: Int = targetComponents.month ?? 0
+        let targetYear: Int = targetComponents.year ?? 0
+        
+        let sTargetDay: String = targetDay > 9 ? String(targetDay) : "0" + String(targetDay)
+        let sTargetMonth: String = targetMonth > 9 ? String(targetMonth) : "0" + String(targetMonth)
+        let sTargetYear: String = String(targetYear).leftPadding(toLength: 4, withPad: "0")
+        
+        let date1 = calendar.startOfDay(for: currentDate)
+        let date2 = calendar.startOfDay(for: self.date)
+        let leftComponents = calendar.dateComponents([.day], from: date1, to: date2)
+        
+        self.dateString = "\(sTargetDay).\(sTargetMonth).\(sTargetYear)"
+//        self.dateDaysLeft = self.dateDaysLeft + 1
+        self.dateDaysLeft = leftComponents.day ?? -1
     }
     
     func sorterForFileIDASC(this: EventsModel, that: EventsModel) -> Bool {
