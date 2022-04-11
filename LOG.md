@@ -37,7 +37,9 @@
   - **Opis widgetow**
   - **Wysłanie prośby o dodanie do sklepu**
   - **Wygenerowanie polityki prywatnosci**
+  - **Send for Review to AppStore**
+  - **Dodanie do AppStore** ([link](https://apps.apple.com/us/app/count-down-days-to-date/id1597135080))
 
 ## Prezentacja końcowa
 
-- [2022-01-XX] 
+- [2022-01-XX] ...

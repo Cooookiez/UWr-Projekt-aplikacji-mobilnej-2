@@ -11,12 +11,28 @@ import WidgetKit
 
 class EventsViewModel: ObservableObject {
     @Published var eventItems: [EventsModel] = []
+    var timer: Timer?
     
     init() {
         print("docDirURL.path: \(FileManager.docDirURL.path)")
         print("docExist: \(FileManager().docExist(named: fileName))")
         if FileManager().docExist(named: fileName) {
             loadEventItems()
+        }
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.updateDays2Date()
+        })
+    }
+    
+    deinit {
+        timer?.invalidate()
+    }
+    
+    func updateDays2Date() {
+        if (self.eventItems.count > 0) {
+            for i in 0...(self.eventItems.count - 1) {
+                self.eventItems[i].updateDays2Date()
+            }
         }
     }
     
