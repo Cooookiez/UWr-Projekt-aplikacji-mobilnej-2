@@ -18,7 +18,7 @@
 - [x] Widget (as visually pleasing as possible)
 - [x] Application icon
 
-## 🕦 Etap 4 (Prezentacja końcowa)
+## ✅ Etap 4 (Prezentacja końcowa)
 
-- [ ] App on AppStore
-- [ ] PowerPoint?
+- [x] App on AppStore
+- [ ] ~~PowerPoint?~~
